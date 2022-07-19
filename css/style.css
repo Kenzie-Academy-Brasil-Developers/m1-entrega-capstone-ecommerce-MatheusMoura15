@@ -87,7 +87,7 @@ transition: 0.5s;
     align-items: center;
     margin: 25px 40px;
     padding: 0px 10px 0px 10px;
-    gap: 6px;
+    gap: 3px;
     background-color: #cd9b9b;
     border-radius: 8px;
     border: 1px solid transparent
@@ -103,6 +103,12 @@ border: 1px solid #c12222b8;
     height: 80px;
 }
 
+.tipo{
+    background-color: #c12222b8;
+    margin-right: 120px;
+    border: 0.5px solid black;
+}
+
 .title{
     background-color: #cd9b9b;
 }
@@ -113,10 +119,16 @@ border: 1px solid #c12222b8;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+    line-height: 16px;
 }
 
 .preco{
     background-color: #cd9b9b;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .button{
@@ -230,6 +242,11 @@ transition: 0.5s;
 .carrinho-preco{
     background-color: #cd9b9b;
     width: 75px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
 } 
 
 .carrinho-button{
