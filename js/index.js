@@ -141,18 +141,10 @@ function interceptandoProduto2(event){
 }
 
 function removerCarrinho(index, btnRemover){
-   
-   for(let i = 0; i < carrinhoCompras.length; i++){
-
-        if(carrinhoCompras[i].id != btnRemover.id){
-
-            carrinhoCompras[i].id = btnRemover.id  
-            
-        }
         carrinhoCompras.splice(index, 1)
         let list  = btnRemover.parentElement
         list.remove()
-   }
+
 }
 
 let p1    = document.createElement("p")
@@ -171,7 +163,6 @@ p3.className   = "paragraph-3"
 p4.className   = "paragraph-4"
 
 divCarrinho.append(p1, p2, p3 ,p4)
-//console.log(divCarrinho)
 
 function somaTotal(){
     
