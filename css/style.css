@@ -305,7 +305,7 @@ transition: 0.5s;
     flex-wrap: wrap;
 }
 
-.carrinho-detalhes p{
+.paragraph-3{
     background-color: #b5b0b0;
     color: black;
     font-family: 'Inter';
@@ -316,7 +316,7 @@ transition: 0.5s;
     width: 50%;
 }
 
-#paragraph-1{
+.paragraph-2{
     background-color: #b5b0b0;
     color: black;
     font-family: 'Inter';
@@ -329,7 +329,7 @@ transition: 0.5s;
     display: flex;
 }
 
-#paragraph-2{
+.paragraph-4{
     background-color: #b5b0b0;
     color: black;
     font-family: 'Inter';
