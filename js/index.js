@@ -4,7 +4,6 @@ const divCarrinho   = document.querySelector(".carrinho-detalhes")
 
 
 function listarProdutos(products){
-
     ul.innerHTML = ""
 
     for(let i = 0; i < products.length; i++){
@@ -13,7 +12,6 @@ function listarProdutos(products){
         let secao   = criarCard(produto)
 
         ul.appendChild(secao)
-
     }
 }
 listarProdutos(produtos)
@@ -34,19 +32,15 @@ function criarCard(produto){
     buttonCategoria.innerText   = produto.tag
     h3.innerText                = produto.nameItem
     pDescription.innerText      = produto.description
-    spanPreco.innerText         = `R$ ${produto.value},99`
+    spanPreco.innerText         = `R$ ${produto.value}`.replaceAll(".", ",")
     buttonCarrinho.innerText    = produto.addCart
-    let id                      = produto.id
-    
-    if(id != undefined){
-        buttonCarrinho.id = id
-    }
+    buttonCarrinho.id           = produto.id
 
     li.className                = "list"
     figure.className            = "container-img"
     img.className               = "img"
     buttonCategoria.className   = "tipo"
-    div.className               = "div-text"
+    div.className               = "div"
     h3.className                = "title"
     pDescription.className      = "description"
     spanPreco.className         = "span"
@@ -68,8 +62,8 @@ btnBusca.addEventListener("click", function(){
     let resultadoPesquisa   = busca(pesquisa)
 
 listarProdutos(resultadoPesquisa)
-
 })
+
 function busca(valorBusca){
 
     let resultBusca = []
@@ -84,11 +78,13 @@ function busca(valorBusca){
     return resultBusca
 }
 
-ul.addEventListener("click", interceptandoProduto)
+const button = document.querySelectorAll(".button")
+
+ul.addEventListener("click", adicionarCarrinho)
 
 let carrinhoCompras = []
 
-function interceptandoProduto(event){
+function adicionarCarrinho(event){
     
     let btnComprar = event.target
     
@@ -100,51 +96,69 @@ function interceptandoProduto(event){
             
             if(product.id == idProduto){
                 return product
-                
             }
         })
-        adicionarCarrinho(produto)
-        //console.log(produto)
-        
-        let card = btnComprar.closest("li").cloneNode(true)
-        let button = card.children[3]
-        let div = card.children[2]
-        let h3  = div.children[0]
-
-        card.setAttribute("class", "list-carrinho")
-        h3.setAttribute("class", "carrinho-title")
-        
-        button.innerText  = "X"
-        button.className  = "x"
-        
-        ulCarrinho.appendChild(card)
-        let i = ulCarrinho.childElementCount
+        carrinhoCompras.push(produto)
+        listarCart(carrinhoCompras)
     }
 }
 
-function adicionarCarrinho(produto){
-    carrinhoCompras.push(produto)
-    console.log(carrinhoCompras)
+function listarCart(carrinhoCompras){
+
+    ulCarrinho.innerHTML = ""
+
+    carrinhoCompras.forEach((produto, index)=>{
+
+        const card2 = template(produto, index)
+
+        ulCarrinho.append(card2)
+    })       
+    somaTotal(carrinhoCompras)
 }
 
-ulCarrinho.addEventListener("click", interceptandoProduto2)
+function template(produto, index){
 
-function interceptandoProduto2(event){
+    const li    = document.createElement("li")
+    let figure  = document.createElement("figure") 
+    let img     = document.createElement("img") 
+    let div     = document.createElement("div") 
+    let h3      = document.createElement("h3") 
+    let span    = document.createElement("span") 
+    let button  = document.createElement("button") 
+
+    li.className        = "list-carrinho"
+    figure.className    = "container"
+    img.className       = "img-carrinho"
+    div.className       = "div-text"
+    h3.className        = "carrinho-title"
+    span.className      = "span"
+    button.className    = "x"
+    button.id       = index
+    
+    img.src         = produto.img
+    h3.innerText    = produto.nameItem
+    span.innerText  = `R$ ${produto.value}`.replaceAll(".", ",")
+    button.innerText= "X"
+
+    figure.appendChild(img)
+    div.append(h3, span)
+    li.append(figure, div, button)
+
+    return li
+}
+
+ulCarrinho.addEventListener("click", removerCarrinho)
+
+function removerCarrinho(event){
 
     let btnRemover = event.target
+
     if(btnRemover.tagName == "BUTTON"){
 
-        let idProduto = btnRemover.id
-        removerCarrinho(idProduto, btnRemover)
-        console.log(carrinhoCompras)
-    }
-}
-
-function removerCarrinho(index, btnRemover){
+        let index = btnRemover.id
         carrinhoCompras.splice(index, 1)
-        let list  = btnRemover.parentElement
-        list.remove()
-
+        listarCart(carrinhoCompras)
+    }
 }
 
 let p1    = document.createElement("p")
@@ -153,10 +167,9 @@ let p3    = document.createElement("p")
 let p4    = document.createElement("p")
 
 p1.innerText   = "Qnt de produtos:"
-p2.innerText   =  3
+p2.innerText   = 0
 p3.innerText   = "Preço Total:"
-p4.innerText   = `${somaTotal()}`
-
+p4.innerText   = 0
 p1.className   = "paragraph-3"
 p2.className   = "paragraph-2"
 p3.className   = "paragraph-3"
@@ -164,17 +177,16 @@ p4.className   = "paragraph-4"
 
 divCarrinho.append(p1, p2, p3 ,p4)
 
-function somaTotal(){
+function somaTotal(carrinhoCompras){
     
     let precoProduto = 0
-    
-    for(let i = 0; i < carrinhoCompras.length; i++){
         
-        precoProduto += `${carrinhoCompras[2].value},99`
+    for(let i = 0; i < carrinhoCompras.length; i++){
+
+        p2.innerText = carrinhoCompras.length
+        precoProduto += carrinhoCompras[i].value
+        
     }
-    return precoProduto
-}
-somaTotal()
-
-
-
+    return p4.innerText = precoProduto.toFixed(2)
+}  
+somaTotal(carrinhoCompras)

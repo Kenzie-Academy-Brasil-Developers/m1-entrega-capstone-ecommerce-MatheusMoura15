@@ -227,6 +227,7 @@ transition: 0.5s;
     max-width: 100%;
     margin-top: 15px;
     padding: 8px;
+    gap: 10px;
 }
 
 .list-carrinho figure{
@@ -235,6 +236,7 @@ transition: 0.5s;
     height: 78px;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 .list-carrinho p{

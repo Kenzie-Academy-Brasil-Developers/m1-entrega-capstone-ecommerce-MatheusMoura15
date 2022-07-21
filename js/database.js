@@ -5,8 +5,8 @@ const produtos = [
     nameItem: "Lightweight Jacket",
     description:
       "Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...",
-    value: 199,
-    addCart: "Adicionar ao carrinho",
+      value: 199.99,
+      addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
   {
@@ -15,7 +15,7 @@ const produtos = [
     nameItem: "Black Hat",
     description:
       "O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...",
-    value: 69,
+    value: 69.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Acessórios"],
   },
@@ -25,7 +25,7 @@ const produtos = [
     nameItem: "Mask",
     description:
       "Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...",
-    value: 29,
+    value: 29.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Acessórios"],
   },
@@ -35,7 +35,7 @@ const produtos = [
     nameItem: "Black T-Shirt",
     description:
       "Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...",
-    value: 89,
+    value: 89.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
@@ -45,7 +45,7 @@ const produtos = [
     nameItem: "Short-Sleeve T-Shirt",
     description:
       "Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...",
-    value: 89,
+    value: 89.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
@@ -55,7 +55,7 @@ const produtos = [
     nameItem: "Champion Jacket",
     description:
       "Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...",
-    value: 249,
+    value: 249.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
@@ -65,7 +65,7 @@ const produtos = [
     nameItem: "T-Shirt",
     description:
     "Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...",
-    value: 99,
+    value: 99.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
@@ -75,7 +75,7 @@ const produtos = [
     nameItem: "Champion T-Shirt",
     description:
       "Esteja na moda com esta camiseta Champion. Esta camisa de po...",
-    value: 99,
+    value: 99.99,
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   }
